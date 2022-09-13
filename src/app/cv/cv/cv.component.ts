@@ -27,6 +27,15 @@ export class CvComponent implements OnInit {
       'rotating_card_profile3.png',
       '12345'
     ),
+    new Cv(
+      3,
+      'sellaouti',
+      'skander',
+      3,
+      'tgangin',
+      'rotating_card_profile.png',
+      '12345'
+    ),
   ];
   constructor() {}
 
