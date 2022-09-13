@@ -1,0 +1,11 @@
+<div (click)="interupteur()" class="lampe" [ngClass]="{
+    allume: !isEteinte,
+    eteinte: isEteinte
+  }">ngclass works!</div>
+
+<p appHighlight>cc</p>
+
+<div appHighlight [in]="'white'" [out]="'black'"> test directive</div>
+<div appHighlight [in]="'white'" [out]="'red'"> test directive</div>
+<div appHighlight [in]="'green'" [out]="'red'"> test directive</div>
+<div appHighlight [in]="'green'" [out]="'yellow'"> test directive</div>
