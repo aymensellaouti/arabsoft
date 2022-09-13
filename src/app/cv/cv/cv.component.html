@@ -2,9 +2,9 @@
   <div class="col">
     <div class="alert alert-info">
       {{date | date : 'medium' | uppercase}}
-      <p> {{ 1 | btcToUsd}}</p>
+<!--       <p> {{ 1 | btcToUsd}}</p>
       <p> {{ 1 | btcToUsd | btcToUsd: false}}</p>
-      <p> {{ 1 | btcToUsd: false}}</p>
+      <p> {{ 1 | btcToUsd: false}}</p> -->
     </div>
     <app-list (forwardCv)="getSelectedCv($event)" [cvs]="cvs"></app-list>
   </div>

@@ -21,6 +21,7 @@ import { NgclassComponent } from './directives/ngclass/ngclass.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
     HighlightDirective,
     RainbowDirective,
     BtcToUsdPipe,
+    DefaultImagePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
