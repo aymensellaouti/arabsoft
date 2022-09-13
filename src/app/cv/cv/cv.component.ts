@@ -8,6 +8,7 @@ import { Cv } from '../model/cv';
 })
 export class CvComponent implements OnInit {
   selectedCv: Cv | null = null;
+  date = new Date();
   cvs: Cv[] = [
     new Cv(
       1,
