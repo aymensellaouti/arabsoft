@@ -7,6 +7,7 @@ import { Cv } from '../model/cv';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent implements OnInit {
+  selectedCv: Cv | null = null;
   cvs: Cv[] = [
     new Cv(
       1,
@@ -30,4 +31,7 @@ export class CvComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  getSelectedCv(cv: Cv) {
+    this.selectedCv = cv;
+  }
 }
