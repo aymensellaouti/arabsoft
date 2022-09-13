@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cv } from '../model/cv';
+import { LoggerService } from '../../services/logger.service';
+import { SayHelloService } from '../../services/say-hello.service';
 
 @Component({
   selector: 'app-cv',
@@ -30,9 +32,15 @@ export class CvComponent implements OnInit {
       '12345'
     ),
   ];
-  constructor() {}
+  constructor(
+    private logger: LoggerService,
+    private sayHello: SayHelloService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.logger.log('cc je suis le cvComponent');
+    this.sayHello.hello();
+  }
   getSelectedCv(cv: Cv) {
     this.selectedCv = cv;
   }
