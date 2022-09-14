@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Cv } from '../model/cv';
 import { LoggerService } from '../../services/logger.service';
 import { SayHelloService } from '../../services/say-hello.service';
+import { TodoService } from '../../todo/services/todo.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
@@ -33,15 +35,20 @@ export class CvComponent implements OnInit {
     ),
   ];
   constructor(
+    /* Donne moi une instance de LoggerService et met la dans la variable logger */
     private logger: LoggerService,
-    private sayHello: SayHelloService
+    private sayHello: SayHelloService,
+    private todoService: TodoService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.logger.log('cc je suis le cvComponent');
     this.sayHello.hello();
+    this.toastr.info('Bonjour bienvenu dans le cvComponent');
   }
   getSelectedCv(cv: Cv) {
     this.selectedCv = cv;
+    this.todoService.logTodos();
   }
 }
