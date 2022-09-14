@@ -33,6 +33,7 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { BackComponent } from './components/back/back.component';
 import { FrontComponent } from './components/front/front.component';
 import { NF404Component } from './components/nf404/nf404.component';
+import { TestFormComponent } from './components/test-form/test-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { NF404Component } from './components/nf404/nf404.component';
     BackComponent,
     FrontComponent,
     NF404Component,
+    TestFormComponent,
   ],
   imports: [
     BrowserModule,
