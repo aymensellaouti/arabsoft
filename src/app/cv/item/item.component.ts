@@ -8,6 +8,7 @@ import { Cv } from '../model/cv';
 })
 export class ItemComponent implements OnInit {
   @Input() cv: Cv | null = null;
+  @Input() size = 50;
   @Output() selectCv = new EventEmitter<Cv>();
   constructor() {}
 

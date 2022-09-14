@@ -4,6 +4,7 @@ import { LoggerService } from '../../services/logger.service';
 import { SayHelloService } from '../../services/say-hello.service';
 import { TodoService } from '../../todo/services/todo.service';
 import { ToastrService } from 'ngx-toastr';
+import { CvService } from '../services/cv.service';
 
 @Component({
   selector: 'app-cv',
@@ -13,42 +14,22 @@ import { ToastrService } from 'ngx-toastr';
 export class CvComponent implements OnInit {
   selectedCv: Cv | null = null;
   date = new Date();
-  cvs: Cv[] = [
-    new Cv(1, 'sellaouti', 'aymen', 40, 'teacher', '', '1234'),
-    new Cv(
-      2,
-      'sellaouti',
-      'skander',
-      3,
-      'tgangin',
-      'rotating_card_profile3.png',
-      '12345'
-    ),
-    new Cv(
-      3,
-      'sellaouti',
-      'skander',
-      3,
-      'tgangin',
-      '                         ',
-      '12345'
-    ),
-  ];
+  cvs: Cv[] = [];
   constructor(
     /* Donne moi une instance de LoggerService et met la dans la variable logger */
     private logger: LoggerService,
     private sayHello: SayHelloService,
-    private todoService: TodoService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cvService: CvService
   ) {}
 
   ngOnInit(): void {
     this.logger.log('cc je suis le cvComponent');
     this.sayHello.hello();
     this.toastr.info('Bonjour bienvenu dans le cvComponent');
+    this.cvs = this.cvService.getCvs();
   }
   getSelectedCv(cv: Cv) {
     this.selectedCv = cv;
-    this.todoService.logTodos();
   }
 }

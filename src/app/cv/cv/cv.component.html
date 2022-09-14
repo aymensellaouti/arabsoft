@@ -2,7 +2,7 @@
   <div class="col">
     <div class="alert alert-info">
       {{date | date : 'medium' | uppercase}}
-<!--       <p> {{ 1 | btcToUsd}}</p>
+      <!--       <p> {{ 1 | btcToUsd}}</p>
       <p> {{ 1 | btcToUsd | btcToUsd: false}}</p>
       <p> {{ 1 | btcToUsd: false}}</p> -->
     </div>
@@ -11,4 +11,7 @@
   <div class="col">
     <app-cv-card [cv]="selectedCv"></app-cv-card>
   </div>
+</div>
+<div class="row">
+  <app-embauche></app-embauche>
 </div>
