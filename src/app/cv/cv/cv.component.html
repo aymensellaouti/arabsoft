@@ -6,10 +6,13 @@
       <p> {{ 1 | btcToUsd | btcToUsd: false}}</p>
       <p> {{ 1 | btcToUsd: false}}</p> -->
     </div>
-    <app-list (forwardCv)="getSelectedCv($event)" [cvs]="cvs"></app-list>
+    <div class="alert alert-warning">
+      Nombre de click sur les cvs est : {{ nbClick }}
+    </div>
+    <app-list [cvs]="cvs"></app-list>
   </div>
   <div class="col">
-    <app-cv-card [cv]="selectedCv"></app-cv-card>
+    <app-cv-card></app-cv-card>
   </div>
 </div>
 <div class="row">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -27,16 +27,21 @@ export class TestObservableComponent implements OnInit {
   }
 
   toast() {
-    this.observable$.subscribe({
-      next: (maVal) => {
-        this.toastr.info('' + maVal);
-      },
-      error: (e) => {
-        console.log('An Error happen :( ');
-      },
-      complete: () => {
-        this.toastr.warning('BOOOOOM :D');
-      },
-    });
+    this.observable$
+      .pipe(
+        map((data) => data * 3),
+        filter((data) => data % 2 == 0)
+      )
+      .subscribe({
+        next: (maVal) => {
+          this.toastr.info('' + maVal);
+        },
+        error: (e) => {
+          console.log('An Error happen :( ');
+        },
+        complete: () => {
+          this.toastr.warning('BOOOOOM :D');
+        },
+      });
   }
 }

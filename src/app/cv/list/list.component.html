@@ -3,6 +3,6 @@
       'list-group-item-primary': !isOdd,
       'list-group-item-secondary': isOdd
     }" *ngFor="let cv of cvs; let isOdd = odd" class="list-group-item">
-    <app-item (selectCv)="forwardItem($event)" [cv]="cv"></app-item>
+    <app-item [cv]="cv"></app-item>
   </li>
 </ol>
