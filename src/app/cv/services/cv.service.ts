@@ -40,7 +40,11 @@ export class CvService {
   getFakeCvs(): Cv[] {
     return this.cvs;
   }
-  findCvById(id: number): Cv | null {
+  findCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(API.cv + id);
+  }
+
+  findFakeCvById(id: number): Cv | null {
     return this.cvs.find((cv) => cv.id == id) ?? null;
   }
   deleteCv(cv: Cv): void {
