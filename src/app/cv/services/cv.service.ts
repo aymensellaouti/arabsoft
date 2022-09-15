@@ -50,21 +50,21 @@ export class CvService {
     this.cvs.splice(index, 1);
   }
   deleteCv(id: number): Observable<any> {
-    const params = new HttpParams().set(
+    /*     const params = new HttpParams().set(
       'access_token',
       localStorage.getItem('token') ?? ''
-    );
+    ); */
     /* Dans js si le nom de la variable  = cle parametre on le met seul sans cle valeur */
-    return this.http.delete<Cv>(API.cv + id, { params });
+    return this.http.delete<Cv>(API.cv + id /* , { params } */);
   }
   selectCv(cv: Cv) {
     this.selectCvSubject.next(cv);
   }
   addCv(cv: Cv): Observable<Cv> {
-    const headers = new HttpHeaders().set(
+    /*     const headers = new HttpHeaders().set(
       'authorization',
       localStorage.getItem('token') ?? ''
-    );
-    return this.http.post<Cv>(API.cv, cv, { headers });
+    ); */
+    return this.http.post<Cv>(API.cv, cv /*, { headers } */);
   }
 }
