@@ -9,12 +9,15 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active text-primary">cv</a>
-        <a class="nav-link" [routerLink]="['cv','add']" routerLinkActive="active text-primary">Add cv</a>
+        <a *ngIf="authService.isAuthenticated()" class="nav-link" [routerLink]="['cv','add']"
+          routerLinkActive="active text-primary">Add cv</a>
         <a class="nav-link" [routerLink]="['todo']" routerLinkActive="active text-primary">todo</a>
         <a class="nav-link" [routerLink]="['back', 'color', 'lightblue']"
           routerLinkActive="active text-primary">color</a>
         <a class="nav-link" [routerLink]="['back', 'word']" routerLinkActive="active text-primary">word</a>
-        <a class="nav-link" [routerLink]="['login']" routerLinkActive="active text-primary">Login</a>
+        <a *ngIf="!authService.isAuthenticated()" class="nav-link" [routerLink]="['login']"
+          routerLinkActive="active text-primary">Login</a>
+        <a *ngIf="authService.isAuthenticated()" class="nav-link" (click)="logout()">Logout</a>
       </div>
     </div>
   </div>

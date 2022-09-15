@@ -1,3 +1,4 @@
 export const MES_ROUTES = {
-  'cv': 'cv'
-}
+  cv: 'cv',
+  login: 'login',
+};

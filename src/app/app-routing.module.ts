@@ -12,6 +12,7 @@ import { BackComponent } from './components/back/back.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 /* /blabla */
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
         path: 'cv',
         children: [
           { path: '', component: CvComponent },
-          { path: 'add', component: AddCvComponent },
+          { path: 'add', component: AddCvComponent, canActivate: [AuthGuard] },
           { path: ':id', component: DetailsCvComponent },
         ],
       },
