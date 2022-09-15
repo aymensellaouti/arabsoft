@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Cv } from '../model/cv';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { API } from '../../config/api.config';
 
 @Injectable({
@@ -31,9 +31,7 @@ export class CvService {
   ];
   private selectCvSubject = new Subject<Cv>();
   selectCvObservable$ = this.selectCvSubject.asObservable();
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
   getCvs(): Observable<Cv[]> {
     return this.http.get<Cv[]>(API.cv);
   }
@@ -47,9 +45,14 @@ export class CvService {
   findFakeCvById(id: number): Cv | null {
     return this.cvs.find((cv) => cv.id == id) ?? null;
   }
-  deleteCv(cv: Cv): void {
+  deleteFakeCv(cv: Cv): void {
     const index = this.cvs.indexOf(cv);
     this.cvs.splice(index, 1);
+  }
+  deleteCv(id: number): Observable<any> {
+    const params = new HttpParams().set('access_token', localStorage.getItem('token') ?? '')
+    /* Dans js si le nom de la variable  = cle parametre on le met seul sans cle valeur */
+    return this.http.delete<Cv>(API.cv + id, {params});
   }
   selectCv(cv: Cv) {
     this.selectCvSubject.next(cv);
