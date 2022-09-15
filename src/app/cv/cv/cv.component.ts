@@ -29,7 +29,19 @@ export class CvComponent implements OnInit {
     this.logger.log('cc je suis le cvComponent');
     this.sayHello.hello();
     this.toastr.info('Bonjour bienvenu dans le cvComponent');
-    this.cvs = this.cvService.getCvs();
+    this.cvService.getCvs().subscribe({
+      next: (cvs: Cv[]) => {
+        this.cvs = cvs;
+      },
+      error: (e) => {
+        console.log(e);
+        this.cvs = this.cvService.getFakeCvs();
+        this.toastr.error(`
+        Les datas sont fake,
+        il y a un problème au niveau du serveur.
+        Veuillez contacter l'admin`);
+      },
+    });
     this.cvService.selectCvObservable$
       .pipe(distinctUntilChanged())
       .subscribe(() => {
